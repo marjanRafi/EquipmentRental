@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="src.controllers.MainController">
+    <top>
+        <Label text="Equipment Rental System" style="-fx-font-weight: bold;" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="24" />
+            </font>
+            <padding>
+                <Insets top="15" bottom="15" />
+            </padding>
+        </Label>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Manage Clients" onAction="#openClientView" prefWidth="150" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                <Button text="Manage Equipment" onAction="#openEquipmentView" prefWidth="150" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                <Button text="Manage Rentals" onAction="#openRentalView" prefWidth="150" style="-fx-background-color: #FF9800; -fx-text-fill: white;" />
+            </HBox>
+
+            <Separator>
+                <VBox.margin>
+                    <Insets top="10" bottom="10" />
+                </VBox.margin>
+            </Separator>
+
+            <Label text="System Overview" style="-fx-font-weight: bold;">
+                <font>
+                    <Font size="18" />
+                </font>
+            </Label>
+
+            <GridPane hgap="20" vgap="10" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="100" />
+                </columnConstraints>
+
+                <VBox alignment="CENTER" style="-fx-border-color: #4CAF50; -fx-border-radius: 5; -fx-padding: 10;" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <Label text="Total Clients" style="-fx-font-weight: bold;" />
+                    <Label fx:id="totalClientsLabel" text="0" style="-fx-font-size: 24;" />
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-border-color: #2196F3; -fx-border-radius: 5; -fx-padding: 10;" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <Label text="Total Equipment" style="-fx-font-weight: bold;" />
+                    <Label fx:id="totalEquipmentLabel" text="0" style="-fx-font-size: 24;" />
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-border-color: #FF9800; -fx-border-radius: 5; -fx-padding: 10;" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                    <Label text="Active Rentals" style="-fx-font-weight: bold;" />
+                    <Label fx:id="activeRentalsLabel" text="0" style="-fx-font-size: 24;" />
+                </VBox>
+            </GridPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="src.controllers.EquipmentController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+
+    <HBox alignment="CENTER_LEFT">
+        <Button text="Back to Main" onAction="#backToMain" style="-fx-background-color: #757575; -fx-text-fill: white;">
+            <padding>
+                <Insets top="5" right="10" bottom="5" left="10" />
+            </padding>
+        </Button>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label text="Equipment Management" style="-fx-font-weight: bold;">
+            <font>
+                <Font size="20" />
+            </font>
+        </Label>
+        <Region HBox.hgrow="ALWAYS" />
+    </HBox>
+
+    <Separator />
+
+    <Label text="Add New Equipment" style="-fx-font-weight: bold;">
+        <font>
+            <Font size="16" />
+        </font>
+    </Label>
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="80" prefWidth="100" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250" />
+        </columnConstraints>
+
+        <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TextField fx:id="nameField" promptText="Enter equipment name" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Category:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <TextField fx:id="categoryField" promptText="Enter category" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="Daily Rate ($):" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="rateField" promptText="Enter daily rate" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Add Equipment" onAction="#addEquipment" style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+            <padding>
+                <Insets top="8" right="15" bottom="8" left="15" />
+            </padding>
+        </Button>
+        <Button text="Delete Selected" onAction="#deleteEquipment" style="-fx-background-color: #f44336; -fx-text-fill: white;">
+            <padding>
+                <Insets top="8" right="15" bottom="8" left="15" />
+            </padding>
+        </Button>
+    </HBox>
+
+    <Separator>
+        <VBox.margin>
+            <Insets top="10" bottom="10" />
+        </VBox.margin>
+    </Separator>
+
+    <Label text="Equipment List" style="-fx-font-weight: bold;">
+        <font>
+            <Font size="16" />
+        </font>
+    </Label>
+
+    <TableView fx:id="equipmentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="80" />
+            <TableColumn fx:id="nameColumn" text="Name" prefWidth="150" />
+            <TableColumn fx:id="categoryColumn" text="Category" prefWidth="120" />
+            <TableColumn fx:id="rateColumn" text="Daily Rate" prefWidth="100" />
+            <TableColumn fx:id="availableColumn" text="Available" prefWidth="100" />
+        </columns>
+        <placeholder>
+            <Label text="No equipment available" />
+        </placeholder>
+    </TableView>
+</VBox>
